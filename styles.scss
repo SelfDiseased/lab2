@@ -142,17 +142,17 @@ body {
         }
         &__title-text {
             color: #c80000;
-            font-family: "PT Serif", serif;
+            font-family: "PT Serif", sans-serif;
             font-size: 30px;
             font-weight: normal;
             letter-spacing: -0.3px;
             margin: 0px;
             line-height: 32px;
-            max-height: 65px;
+            max-height: 32px * 2;
             overflow: hidden;
-            text-overflow: ellipsis;
         }
         &__title-info-area {
+            flex-direction: row;
             width: 194px;
             height: 67px;
             padding: 17px 0 0 19px;
@@ -162,9 +162,11 @@ body {
             color: #333333;
             font-family: "PT Sans", sans-serif;
             font-size: 13px;
-            font-weight: 400;
+            font-weight: normal;
             line-height: 18px;
-            letter-spacing: -0.14px;
+            max-height: 18px * 5;
+            letter-spacing: 0.07px;
+            overflow: hidden;
         }
         &__pagination {
             height: 24px;
@@ -227,7 +229,8 @@ body {
 
             &__description {
                 width: 138px;
-                height: 68px;
+                line-height: 17px;
+                max-height: 17*4px;
                 overflow: hidden;
                 text-overflow: clip;
                 color: #333333;
@@ -297,13 +300,14 @@ body {
             width: 129px;
             height: 33px;
             padding: 2px 0 0 11px;
+            line-height: 18px;
             color: #333333;
             font-family: "PT Sans";
             font-size: 13px;
             font-weight: 700;
             letter-spacing: -0.30px;
             overflow: hidden;
-            text-overflow: clip; 
+            text-overflow: clip;
         }
         &__more-videos {
             padding: 24px 0 0 0;
@@ -329,6 +333,8 @@ body {
     .misc {
         padding: 50px 0 0 0;
         position: relative;
+        $height-of-image: 94px;
+        $top-padding-for-news: 14px;
 
         &__header {
             margin: 0;
@@ -357,12 +363,13 @@ body {
         }
         &__left-arrow {
             width: 60px;
-            height: 133px;
-            padding: 22px 0 0 0;
+            height: $height-of-image;
+            padding: ($top-padding-for-news + 25px) 0 0 0;
             display: flex;
+            align-items: center;
 
             &__image {
-                margin: 42px 24px 0 15px;
+                margin: 0 24px 0 15px;
                 width: 21px;
                 height: 40px;
                 background: url("images/Shape_6_copy_4.png");
@@ -371,7 +378,7 @@ body {
         &__news {
             display: flex;
             flex-direction: column;
-            padding: 14px 0 0 20px;
+            padding: $top-padding-for-news 0 0 20px;
 
             &__topic {
                 color: #c70000;
@@ -379,16 +386,18 @@ body {
                 font-size: 14px;
                 font-weight: 400;
                 letter-spacing: -0.35px;
+                line-height: 16px;
                 margin: 0;
                 padding: 0 0 9px 0;
             }
             &__preview {
                 width: 140px;
-                height: 94px;
+                height: $height-of-image;
             }
             &__description {
                 width: 128px;
-                height: 49px;
+                line-height: 16px;
+                max-height: 48px;
                 overflow: hidden;
                 text-overflow: clip;
                 font-family: "PT Sans", sans-serif;
@@ -400,6 +409,15 @@ body {
                 text-decoration: none;
             }
         }
+        &__right-arrow-area {
+            background-color: rgba(255,255,255, 0);
+            padding: ($top-padding-for-news + 25px - 9px) 0 0 0;
+            width: relative;
+            display: flex;
+            flex-direction: row;
+            height: $height-of-image;
+            align-items: center;
+        }
         &__right-arrow {
             position: absolute;
             width: 61px;
@@ -410,7 +428,7 @@ body {
             background-color: rgba(255,255,255, .5);
 
             &__image {
-                margin: 55px 19px 0 20px;
+                margin: 0 19px 0 20px;
                 right: 0;
                 width: 21px;
                 height: 40px;
